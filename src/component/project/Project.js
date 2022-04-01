@@ -1,6 +1,7 @@
 import React from 'react'
 import ProjectShow from './ProjectShow'
 import { Animated } from "react-animated-css";
+
 const Project = () => {
     return (
         <Animated animationIn="fadeIn" animationOut="fadeOut" isVisible={true}>

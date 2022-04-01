@@ -1,16 +1,22 @@
-import React from 'react'
+import React, { useState } from 'react'
 import styled from 'styled-components'
 import Chip from '@mui/material/Chip';
 import ProgressBar from '@ramonak/react-progress-bar';
+import CircularProgress from '@mui/material/CircularProgress';
+import styles from './projectshow.module.css'
 const ProjectShow = (props) => {
+    const [loadImage, setLoadImage] = useState(true)
     return (
         <Container className='p-6 shadow-lg shadow-black-500/50 overflow-hidden mb-4'>
-            <span className='font-bold text-xl'>{props.name}</span>
-            <ImageProject src={props.image} />
+            <span className='font-bold text-xl block'>{props.name}</span>
+            {loadImage && <div className='w-full flex items-center justify-center' style={{minHeight:'200px'}}>
+                <CircularProgress />
+            </div>}
+            <img onLoad={() => setLoadImage(false)} src={props.image} className={`${loadImage ? '' : styles['image-project']}`} />
             <hr className='mt-12' />
             <div className='m-w-full mt-12 flex flex-wrap justify-start sm:justify-end '>
                 {props.data.map((item, index) => (
-                    <Chip style={{ marginLeft: '8px',marginBottom:'8px' }} key={index} label={item} color="info" />
+                    <Chip style={{ marginLeft: '8px', marginBottom: '8px' }} key={index} label={item} color="info" />
                 ))}
             </div>
             {props.completed === 100 ? (
@@ -22,7 +28,7 @@ const ProjectShow = (props) => {
                     customLabel="Completed"
                     className='mt-8'
                     animateOnRender={true}
-                     transitionDuration='2.5s'
+                    transitionDuration='2.5s'
                 />
             ) : (
                 <>
@@ -34,7 +40,7 @@ const ProjectShow = (props) => {
                         customLabel={`${props.completed}%`}
                         className='mt-8'
                         animateOnRender={true}
-                         transitionDuration='2.5s'
+                        transitionDuration='2.5s'
                     /></>
             )}
 
@@ -48,15 +54,5 @@ const Container = styled.div`
         transform: translateY(-16px)
     }
 `
-
-
-const ImageProject = styled.img`
-    display:block;
-    width:100%;
-    min-height: 250px;
-    margin-top:20px
-`
-
-
 
 export default ProjectShow

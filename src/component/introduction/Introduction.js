@@ -1,8 +1,10 @@
-import React from 'react'
+import React, { useState } from 'react'
 import styles from './introduction.module.css'
 import { Animated } from "react-animated-css";
 
-const Introduction = () => {
+
+const Introduction = () => { 
+  
     return (
         <Animated animationIn="zoomIn" animationOut="zoomOut" isVisible={true}>
             <div className='p-2 min-w-full bg-white rounded-md mt-36 shadow-lg grid grid-cols-1	md:grid-cols-2	'>
@@ -13,7 +15,9 @@ const Introduction = () => {
                     <span className='text-center sm:text-left text-blue-600 block text-4xl font-semibold mt-5'>I am a Web developer</span>
                 </div>
                 <div className={`${styles.imageInfo} min-w-full md:w-2/5`}>
-                    <img style={{ minHeight: '500px' }} src='image/bg-info.jpg' />
+                <img style={{ minHeight: '500px' }} src='image/bg-info.jpg' />
+                
+
                 </div>
             </div>
         </Animated>

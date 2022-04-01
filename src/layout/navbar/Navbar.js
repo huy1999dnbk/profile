@@ -14,7 +14,7 @@ const Navbar = ({handleScrollToSection}) => {
         <Animated animationIn="fadeIn" animationOut="fadeOut" isVisible={true}>
             <div className="min-w-full p-2 bg-white h-20 rounded-md	shadow-lg flex flex-row justify-between items-center">
                 <div>
-                    <button className='font-bold text-2xl text-blue-600 '>PROFILE</button>
+                    <button className='font-bold text-2xl text-blue-600 '>MY PROFILE</button>
                 </div>
                 <div>
                     <button className='text-blue-600 hidden md:inline-block mx-3 font-bold hover:bg-blue-600 hover:text-white p-2 shadow-lg shadow-black-500/20 rounded-md'  onClick={() => handleScrollToSection(1)}>About</button>

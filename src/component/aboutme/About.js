@@ -1,7 +1,8 @@
-import React from 'react'
+import React, { useState } from 'react'
 import styled from 'styled-components'
 import { Animated } from "react-animated-css";
 import ProgressBar from "@ramonak/react-progress-bar";
+import CircularProgress from '@mui/material/CircularProgress';
 
 const dataSkills = [
     {
@@ -26,6 +27,7 @@ const dataSkills = [
     },
 ]
 const About = () => {
+    const [loadImage, setLoadImage] = useState(true)
     return (
         <Animated animationIn="fadeInLeft" animationOut="fadeOutLeft" isVisible={true}>
             <div className='p-5 min-w-full bg-white rounded-md mt-48 shadow-lg'>
@@ -37,8 +39,8 @@ const About = () => {
                         <span className='text-lg italic'>I am a Front-end developer located in Da Nang, Vietnam. I have a special passion for programming. I started my web development journey in 2021. So far I am constantly learning and improving my programming skills with the hope of becoming a full-stack web developer in the future. </span>
                     </div>
                     <div className='min-w-full sm:w-2/4 flex justify-center items-center'>
-                        <img className='w-52 h-52 rounded-full border-4 border-solid border-blue-600' src='image/HuyPm.jpg' />
-
+                        {loadImage && <CircularProgress />}
+                        <img onLoad={() => setLoadImage(false)} className={`${loadImage ? '' : 'w-52 h-52 rounded-full border-4 border-solid border-blue-600'}`} src='https://firebasestorage.googleapis.com/v0/b/sport-shop-3f0ff.appspot.com/o/HuyPM.jpg?alt=media&token=274749e0-fdbc-4c07-ad70-31058400da9a' />
                     </div>
                 </div>
                 <hr className='my-12' />
@@ -47,10 +49,10 @@ const About = () => {
                 </div>
                 <div className='w-4/6'>
                     {dataSkills.map((item, index) => (
-                        <ProgressBar key={index} completed={item.completed} bgColor={item.color} customLabel={item.skill} animateOnRender={true} transitionDuration='2.5s' className='my-4'  />
+                        <ProgressBar key={index} completed={item.completed} bgColor={item.color} customLabel={item.skill} animateOnRender={true} transitionDuration='2.5s' className='my-4' />
                     ))}
                 </div>
-                
+
             </div>
         </Animated>
     )
