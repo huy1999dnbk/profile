@@ -37,7 +37,7 @@ const About = () => {
                         <span className='text-lg italic'>I am a Front-end developer located in Da Nang, Vietnam. I have a special passion for programming. I started my web development journey in 2021. So far I am constantly learning and improving my programming skills with the hope of becoming a full-stack web developer in the future. </span>
                     </div>
                     <div className='min-w-full sm:w-2/4 flex justify-center items-center'>
-                        <img className='w-52 h-52 rounded-full border-4 border-solid border-blue-600' src='/image/HuyPm.jpg' />
+                        <img className='w-52 h-52 rounded-full border-4 border-solid border-blue-600' src='image/HuyPm.jpg' />
 
                     </div>
                 </div>
